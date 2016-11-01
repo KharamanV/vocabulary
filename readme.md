@@ -11,6 +11,8 @@
 ### Vendor
 1. Open cmd and move to root project directory
     * Run composer (```composer install```), and wait until all packages will be downloaded
+    
+    
 ### Task Scheduling
 > Task, which creates XML file from users info - located in ```\App\Console\Commands\CreateXMLUsers``` namespace. 
 > XML file will be stored at ```storage/app/users.xml```
