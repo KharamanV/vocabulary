@@ -1,27 +1,20 @@
-# Laravel PHP Framework
+![alt text](https://hyperhost.ua/info/wp-content/uploads/2016/06/laravel.png "Logo Title Text 1")
+# Documentation [![21edbf88dbb75ea1b0a902b9099cc357[1].png](https://s18.postimg.org/faqi33sah/21edbf88dbb75ea1b0a902b9099cc357_1.png)](https://postimg.org/image/jwmmbgdth/)
+---
+### Prepare DB
+1. Create database with name "code_care_task" (without quotes);
+2. Set your MySQL auth parameters in .env file
+3. Open cmd and move to root project directory
+    * Run migrations by artisan command (``` php artisan migrate ```)
+    * Run seeds (```php artisan db:seed```)
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+### Vendor
+1. Open cmd and move to root project directory
+    * Run composer (```composer install```), and wait until all packages will be downloaded
+### Task Scheduling
+> Task, which creates XML file from users info - located in ```\App\Console\Commands\CreateXMLUsers``` namespace. 
+> XML file will be stored at ```storage/app/users.xml```
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+To start the scheduler, you must create a cron job on your server manualy, and run  ```* * * * * php /path/to/artisan schedule:run >> /dev/null 2>&1```, where ```php``` is path to php.exe, and where ```/path/to/artisan``` is path to php artisan.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
-
-## Official Documentation
-
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+Or, you can move to ```/cron ``` directory from root folder, edit ```crontab``` file, and replace some paths. After this, you can run scheduler by executing ```crontab.exe``` binary.
